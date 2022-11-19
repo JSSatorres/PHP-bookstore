@@ -1,3 +1,23 @@
+<?php
+require "../db/db2.php";
+
+$message = "";
+
+if (!empty($_POST["username"]) && !empty($_POST["email"]) && !empty($_POST["password"])) {
+  $sql = "INSERT INTO users (username, email, password) VALUES (:username, :email, :password)";
+  $stmt = $conn->prepare($sql);
+  $stmt->bindParam(":username", $_POST["username"]);
+  $stmt->bindParam(":email", $_POST["email"]);
+  $password = password_hash($_POST["password"], PASSWORD_BCRYPT);
+  $stmt->bindParam(":password", $password);
+
+  if ($stmt->execute()) {
+    $message = "Succesfully created new user";
+  } else {
+    $message = "there has been an error";
+  }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,6 +37,11 @@
   ?>
   <div class="login">
     <h1>Register</h1>
+
+    <?php if (!empty($message)) : ?>
+      <p><?php $message ?> </p>
+    <?php endif; ?>
+
     <form action="register.php" method="post">
       <input type="text" name="username" placeholder="Username" required="required" />
       <input type="email" name="email" placeholder="Email" required="required" />
