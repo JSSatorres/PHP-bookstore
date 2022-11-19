@@ -11,9 +11,9 @@ class DB
   public function __construct()
   {
     $this->host     = 'localhost';
-    $this->db       = 'compras';
+    $this->db       = 'login_manager';
     $this->user     = 'root';
-    $this->password = "123!\"·QWE";
+    $this->password = "";
     $this->charset  = 'utf8mb4';
   }
 
@@ -23,7 +23,7 @@ class DB
     try {
 
       $connection = "mysql:host=" . $this->host . ";dbname=" . $this->db . ";charset=" . $this->charset;
-      $options = [
+     
         PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_EMULATE_PREPARES   => false,
       ];
@@ -35,3 +35,5 @@ class DB
     }
   }
 }
+
+
