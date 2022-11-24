@@ -1,4 +1,3 @@
 <?php
-require_once './libs/app.php';
-
-$app = new App;
+include "./template/header.php";
+include "./template/footer.php";
