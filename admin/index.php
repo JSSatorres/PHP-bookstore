@@ -1,10 +1,14 @@
 <?php
 include "./template/header.php";
+
+if ($_POST) {
+  header('location:admin.php');
+}
 ?>
-<form action="index.php" method="post">
+<form action="admin.php" method="post">
   <div class="container mt-5">
     <div class="row justify-content-center">
-      <div class="card col-4 mx-3 my-3 ">
+      <div class="card col-6 mx-3 my-3 ">
         <div class="form-group">
           <h3 class="form-label my-4 text-center"> Login</h3>
           <div class="form-floating mb-3 ">
