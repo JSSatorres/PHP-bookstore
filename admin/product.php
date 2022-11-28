@@ -10,16 +10,6 @@ $booked = (isset($_POST['booked'])) ? $_POST['booked'] : "false";
 $signed = (isset($_POST['signed'])) ? $_POST['signed'] : "false";
 $image = (isset($_FILES['image']['name'])) ? $_FILES['image']['name'] : "";
 
-// INSERT INTO `libros` (`id`, `title`, `type`, `description`, `store`, `dispponibility`, `booked`, `signed`, `image`) VALUES ('null', 'Amor fraterno', 'Classics', 'this is a romantic book', 'central', 'true', 'false', 'false', '');
-
-echo $title . "</br>";
-echo $type . "</br>";
-echo $description . "</br>";
-echo $store . "</br>";
-echo $dispponibility . "</br>";
-echo $booked . "</br>";
-echo $signed . "</br>";
-echo $image . "</br>";
 
 include("../db/db.php");
 
@@ -34,6 +24,7 @@ $sql->bindParam(':signed', $signed);
 $sql->bindParam(':image', $image);
 $sql->execute();
 ?>
+
 <div class="container mt-5">
   <div class="row">
     <div class="col-md-8">
@@ -106,8 +97,7 @@ $sql->execute();
             </div>
           </fieldset>
           <button type="submit" class="btn btn-success btn-outline-dark my-5">Submit</button>
-      </form>\phpmyadmin\index.php
-
+      </form>
     </div>
   </div>
 </div>
