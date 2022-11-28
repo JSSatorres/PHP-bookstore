@@ -21,20 +21,18 @@ echo $booked . "</br>";
 echo $signed . "</br>";
 echo $image . "</br>";
 
+include("../db/db.php");
 
-$host = 'localhost';
-$db = 'login-manager';
-$user = 'root';
-$password = '';
-
-try {
-  $conecttion = new PDO("mysql:host=$server;dbname=$db;", $user, $password);
-} catch (Exception $e) {
-  echo 'Connection Failed:' . $e->getMessage();
-}
-
-$sql = $conecttion->prepare("INSERT INTO `libros` (`id`, `title`, `type`, `description`, `store`, `dispponibility`, `booked`, `signed`, `image`) VALUES ('null', 'War', 'Classics', 'this is mot a romantic book', 'central', 'true', 'false', 'false', '')");
-$sql->execute()
+$sql = $conecttion->prepare("INSERT INTO libros ( title, type, description, store, dispponibility, booked, signed,image) VALUES ( :title, :type, :description, :store, :dispponibility, :booked, :signed, :image);");
+$sql->bindParam(':title', $title);
+$sql->bindParam(':type', $type);
+$sql->bindParam(':description', $description);
+$sql->bindParam(':store', $store);
+$sql->bindParam(':dispponibility', $dispponibility);
+$sql->bindParam(':booked', $booked);
+$sql->bindParam(':signed', $signed);
+$sql->bindParam(':image', $image);
+$sql->execute();
 ?>
 <div class="container mt-5">
   <div class="row">
