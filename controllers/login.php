@@ -10,5 +10,6 @@ class Login
   public function __construct()
   {
     $this->email = $this->began . "@gmail.com";
+    $this->user =  "Mr" . $this->began;
   }
 }
