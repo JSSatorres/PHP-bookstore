@@ -5,9 +5,10 @@ class Login
   private $email;
   private $user;
   private $password;
+  public $began;
 
-  function __construct()
+  public function __construct()
   {
-    echo "dentro";
+    $this->email = $this->began . "@gmail.com";
   }
 }
