@@ -11,7 +11,7 @@
 
 <body></body>
 
-<?php $url = "http://" . $_SERVER['HTTP_HOST'] . "/Login/admin/product.php"; ?>
+<?php $url = "http://" . $_SERVER['HTTP_HOST'] . "/Login/admin/add-product.php"; ?>
 
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
   <div class="container-fluid">
@@ -24,10 +24,10 @@
           <a class="nav-link" href="./index.php">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./products.php">Home</a>
+          <a class="nav-link" href="./products.php">Products</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo $url ?>">Product</a>
+          <a class="nav-link" href="<?php echo $url ?>">Add Product</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="./company.php">Close</a>
