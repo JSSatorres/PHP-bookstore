@@ -5,10 +5,6 @@ include "./db/db.php";
 $query = $conecttion->prepare("SELECT * FROM libros");
 $query->execute();
 $products = $query->fetchAll(PDO::FETCH_ASSOC);
-
-// if ($_POST) {
-//   header('location:products.php');
-// }
 $email = (isset($_POST['email'])) ? $_POST['email'] : "";
 $password = (isset($_POST['password'])) ? $_POST['password'] : "";
 print_r($_POST);
